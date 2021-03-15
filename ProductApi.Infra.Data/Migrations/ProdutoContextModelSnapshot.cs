@@ -8,7 +8,7 @@ using ProductApi.Infra.Data.Context;
 
 namespace ProductApi.Infra.Data.Migrations
 {
-    [DbContext(typeof(ProdutoContext))]
+    [DbContext(typeof(ProductContext))]
     partial class ProdutoContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

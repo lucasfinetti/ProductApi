@@ -11,10 +11,10 @@ namespace ProductApi.Infra.Data.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        protected readonly ProdutoContext Db;
+        protected readonly ProductContext Db;
         protected readonly DbSet<Product> DbSet;
 
-        public ProductRepository(ProdutoContext context)
+        public ProductRepository(ProductContext context)
         {
             Db = context;
             DbSet = Db.Set<Product>();

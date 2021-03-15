@@ -9,7 +9,7 @@ using ProductApi.Infra.Data.Context;
 
 namespace ProductApi.Infra.Data.Migrations
 {
-    [DbContext(typeof(ProdutoContext))]
+    [DbContext(typeof(ProductContext))]
     [Migration("20210205211207_InitialCreate")]
     partial class InitialCreate
     {

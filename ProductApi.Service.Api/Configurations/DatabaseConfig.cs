@@ -12,7 +12,7 @@ namespace ProductApi.Service.Api.Configurations
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
 
-            services.AddDbContext<ProdutoContext>(options =>
+            services.AddDbContext<ProductContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<EventStoreSqlContext>(options =>

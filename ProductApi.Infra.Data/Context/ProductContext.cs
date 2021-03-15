@@ -11,11 +11,11 @@ using NetDevPack.Messaging;
 
 namespace ProductApi.Infra.Data.Context
 {
-    public sealed class ProdutoContext : DbContext, IUnitOfWork
+    public sealed class ProductContext : DbContext, IUnitOfWork
     {
         private readonly IMediatorHandler _mediatorHandler;
 
-        public ProdutoContext(DbContextOptions<ProdutoContext> options, IMediatorHandler mediatorHandler) : base(options)
+        public ProductContext(DbContextOptions<ProductContext> options, IMediatorHandler mediatorHandler) : base(options)
         {
             _mediatorHandler = mediatorHandler;
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;

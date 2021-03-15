@@ -40,7 +40,7 @@ namespace ProductApi.Infra.CrossCutting.IoC
             
             // Infra - Data
             services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<ProdutoContext>();
+            services.AddScoped<ProductContext>();
 
             // Infra - Data EventSourcing
             services.AddScoped<IEventStoreRepository, EventStoreSqlRepository>();
