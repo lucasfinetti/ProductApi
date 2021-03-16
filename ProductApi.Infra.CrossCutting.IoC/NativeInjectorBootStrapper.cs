@@ -12,9 +12,6 @@ using FluentValidation.Results;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using NetDevPack.Mediator;
-using ProductApi.Domain.Commands.AccountCommands;
-using ProductApi.Domain.Services.Interfaces;
-using ProductApi.Domain.Services.Services;
 
 namespace ProductApi.Infra.CrossCutting.IoC
 {
@@ -27,16 +24,11 @@ namespace ProductApi.Infra.CrossCutting.IoC
 
             // Application
             services.AddScoped<IProductAppService, ProductAppService>();
-            services.AddScoped<IAccountAppService, AccountAppService>();
 
             // Domain - Commands
             services.AddScoped<IRequestHandler<RegisterNewProductCommand, ValidationResult>, ProductCommandHandler>();
             services.AddScoped<IRequestHandler<UpdateProductCommand, ValidationResult>, ProductCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveProductCommand, ValidationResult>, ProductCommandHandler>();
-            services.AddScoped<IRequestHandler<LoginCommand, ValidationResult>, AccountCommandHandler>();
-
-            // Domain - Services
-            services.AddScoped<IRestService, RestService>();
             
             // Infra - Data
             services.AddScoped<IProductRepository, ProductRepository>();
