@@ -34,8 +34,6 @@ namespace ProductApi.Domain.Commands.ProductsCommands
                 return ValidationResult;
             }
 
-            //product.AddDomainEvent(new ProductRegisteredEvent(product.Id, product.Name, product.Email, product.BirthDate));
-
             _productRepository.Add(product);
 
             return await Commit(_productRepository.UnitOfWork);
@@ -58,8 +56,6 @@ namespace ProductApi.Domain.Commands.ProductsCommands
                 }
             }
 
-            //product.AddDomainEvent(new ProductUpdatedEvent(product.Id, product.Name, product.Email, product.BirthDate));
-
             _productRepository.Update(product);
 
             return await Commit(_productRepository.UnitOfWork);
@@ -76,8 +72,6 @@ namespace ProductApi.Domain.Commands.ProductsCommands
                 AddError("O produto não existe.");
                 return ValidationResult;
             }
-
-            //product.AddDomainEvent(new ProductRemovedEvent(message.Id));
 
             _productRepository.Remove(product);
 

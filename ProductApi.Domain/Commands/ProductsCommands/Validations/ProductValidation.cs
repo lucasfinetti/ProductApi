@@ -29,10 +29,5 @@ namespace ProductApi.Domain.Commands.ProductsCommands.Validations
             RuleFor(c => c.Id)
                 .NotEqual(Guid.Empty);
         }
-
-        //protected static bool HaveMinimumAge(DateTime birthDate)
-        //{
-        //    return birthDate <= DateTime.Now.AddYears(-18);
-        //}
     }
 }

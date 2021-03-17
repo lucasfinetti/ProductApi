@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Identity;
 using NetDevPack.Identity.Jwt;
 using Microsoft.Extensions.Options;
 using NetDevPack.Identity.Model;
+using System.Collections.Generic;
+using System.Security.Claims;
 
 namespace ProductApi.Service.Api.Controllers
 {
-    [Route("account-management")]
+    [Route("api/account-management")]
     public class AccountController : ApiController
     {
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -41,6 +43,12 @@ namespace ProductApi.Service.Api.Controllers
 
             if (result.Succeeded)
             {
+                await _userManager.AddClaimsAsync(user, new List<Claim> {
+                    new Claim("Products", "Read"),
+                    new Claim("Products", "Write"),
+                    new Claim("Products", "Delete"),
+                });
+
                 return CustomResponse(GetFullJwt(user.Email));
             }
 
